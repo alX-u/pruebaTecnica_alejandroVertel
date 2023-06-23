@@ -8,10 +8,24 @@ import 'package:prueba_tecnica_alejandro_vertel/components/my_button.dart';
 import 'package:prueba_tecnica_alejandro_vertel/controllers/active_user_controller.dart';
 import 'package:prueba_tecnica_alejandro_vertel/pages/home_page.dart';
 
-class AddressPage extends StatelessWidget {
-  AddressPage({super.key});
+class AddressPage extends StatefulWidget {
+  const AddressPage({super.key});
 
+  @override
+  State<AddressPage> createState() => _AddressPageState();
+}
+
+class _AddressPageState extends State<AddressPage> {
   ActiveUserController userController = Get.find();
+
+  //create new address
+  void createNewAddress() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog();
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +67,26 @@ class AddressPage extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
+                Expanded(
+                    child: ListView.builder(
+                        itemCount: userController.addresses.length,
+                        itemBuilder: (context, index) {
+                          return MyAddressTile(
+                              address: userController.addresses[index].address);
+                        }))
                 //Expanded(child: ListView.builder())
               ],
             ),
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewAddress,
+        backgroundColor: Colors.black,
+        focusColor: Colors.grey[800],
+        child: const Icon(FontAwesomeIcons.plus),
+      ),
     );
+    ;
   }
 }

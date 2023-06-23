@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class MyAddressTile extends StatelessWidget {
-  const MyAddressTile({super.key});
+  final String address;
+
+  const MyAddressTile({super.key, required this.address});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class MyAddressTile extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(12)),
-        child: const Text('Hola'),
+        child: Text(address),
       ),
     );
   }
