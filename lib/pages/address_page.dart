@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:prueba_tecnica_alejandro_vertel/components/my_address_tile.dart';
 import 'package:prueba_tecnica_alejandro_vertel/components/my_button.dart';
+import 'package:prueba_tecnica_alejandro_vertel/components/my_dialog_box.dart';
 import 'package:prueba_tecnica_alejandro_vertel/controllers/active_user_controller.dart';
 import 'package:prueba_tecnica_alejandro_vertel/pages/home_page.dart';
 
@@ -23,7 +24,9 @@ class _AddressPageState extends State<AddressPage> {
     showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog();
+          return MyDialogBox(
+            getContext: context,
+          );
         });
   }
 
@@ -67,13 +70,13 @@ class _AddressPageState extends State<AddressPage> {
                 const SizedBox(
                   height: 15,
                 ),
-                Expanded(
+                Obx(() => Expanded(
                     child: ListView.builder(
                         itemCount: userController.addresses.length,
                         itemBuilder: (context, index) {
                           return MyAddressTile(
                               address: userController.addresses[index].address);
-                        }))
+                        })))
                 //Expanded(child: ListView.builder())
               ],
             ),

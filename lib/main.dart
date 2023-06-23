@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+//Author: Alejandro Vertel Villegas Cel: 3046521279
+
 void main() async {
   //We initialize the db
   await Hive.initFlutter();
