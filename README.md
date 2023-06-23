@@ -1,16 +1,13 @@
 # prueba_tecnica_alejandro_vertel
 
-A new Flutter project.
+La siguiente es una sencilla aplicación desarrollada en Flutter que permite crear usuarios, iniciar sesión y observar la información de dicho usuario.
 
-## Getting Started
+Como se estipuló en los requerimientos de la prueba, la app recibe por medio de un formulario de registro Nombre, Apellido, fecha de nacimiento y dirección. Múltiples direcciones se pueden agregar.
 
-This project is a starting point for a Flutter application.
+A esto se le añadieron los campos Usuario y Contraseña para la autenticación (Inicio de sesión). 
 
-A few resources to get you started if this is your first Flutter project:
+Se utilizaron los packages Hive como DB local y GetX para el manejo de estados, entre otros.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Cordialmente, 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### ALEJANDRO VERTEL VILLEGAS - INGENIERO DE SISTEMAS Y DESARROLLADOR DE SOFTWARE
