@@ -82,10 +82,6 @@ class HomePage extends StatelessWidget {
                   MyReadOnlyTextField(
                       labelText: 'Fecha de Nacimiento',
                       initialValue: activeUserController.getBirthDate),
-                  //Address
-                  MyReadOnlyTextField(
-                      labelText: 'Dirección',
-                      initialValue: activeUserController.getAddress),
                 ],
               ),
             ),

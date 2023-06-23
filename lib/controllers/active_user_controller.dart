@@ -22,12 +22,11 @@ class ActiveUserController extends GetxController {
   @override
   void onClose() {}
 
-  void signInUser(String username, String name, String lastName,
-      String birthDate, String address) {
+  void signInUser(
+      String username, String name, String lastName, String birthDate) {
     usernameGet.value = username;
     nameGet.value = name;
     lastNameGet.value = lastName;
     birthDateGet.value = birthDate;
-    addressGet.value = address;
   }
 }

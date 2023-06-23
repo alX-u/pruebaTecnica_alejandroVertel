@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prueba_tecnica_alejandro_vertel/components/my_datetextfield.dart';
 import 'package:prueba_tecnica_alejandro_vertel/controllers/date_controller.dart';
+import 'package:prueba_tecnica_alejandro_vertel/model/address_model.dart';
 import 'package:prueba_tecnica_alejandro_vertel/pages/login_page.dart';
 import '../components/my_button.dart';
 import '../components/my_textfields.dart';
@@ -18,6 +19,7 @@ class SignUpPage extends StatelessWidget {
 
   //reference our DB
   final userBox = Hive.box('users');
+  final addressBox = Hive.box('addresses');
 
   //Text Editing Controllers
   final usernameCtrl = TextEditingController();
@@ -32,13 +34,16 @@ class SignUpPage extends StatelessWidget {
   void writeData() {
     //We are going to write the user's data
     if (usernameCtrl.text != '') {
+      //We add the user to the users box
       userBox.add(Users(
           username: usernameCtrl.text,
           name: nameCtrl.text,
           lastName: lastNameCtrl.text,
           birthDate: dateCtrl.birthDateCtrl.value.text,
-          address: addressCtrl.text,
           password: passwordCtrl.text));
+      //We add the address to the addresses box, it relates to the users box by the user's username
+      addressBox
+          .add(Address(username: usernameCtrl.text, address: addressCtrl.text));
       Get.to(() => const LoginPage());
     }
   }

@@ -43,8 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             userBox.values.toList()[i].username,
             userBox.values.toList()[i].name,
             userBox.values.toList()[i].lastName,
-            userBox.values.toList()[i].birthDate,
-            userBox.values.toList()[i].address);
+            userBox.values.toList()[i].birthDate);
         Get.to(() => HomePage());
       }
     }

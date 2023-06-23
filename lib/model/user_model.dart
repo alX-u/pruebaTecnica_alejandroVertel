@@ -10,7 +10,6 @@ class Users extends HiveObject {
     required this.name,
     required this.lastName,
     required this.birthDate,
-    required this.address,
     required this.password,
   });
 
@@ -23,7 +22,5 @@ class Users extends HiveObject {
   @HiveField(3)
   String birthDate;
   @HiveField(4)
-  String address;
-  @HiveField(5)
   String password;
 }
