@@ -3,7 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 
 part 'address_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 class Address extends HiveObject {
   Address({
     required this.username,

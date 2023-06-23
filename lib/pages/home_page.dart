@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:prueba_tecnica_alejandro_vertel/components/my_button.dart';
 import 'package:prueba_tecnica_alejandro_vertel/pages/login_page.dart';
 
 import '../components/my_readonly_textfields.dart';
 import '../components/my_textfields.dart';
 import '../controllers/active_user_controller.dart';
+import 'address_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -17,6 +19,10 @@ class HomePage extends StatelessWidget {
 
   //reference our DB
   final userBox = Hive.box('users');
+
+  void toMyAddresses() {
+    Get.to(() => AddressPage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +43,7 @@ class HomePage extends StatelessWidget {
                     children: [
                       InkWell(
                           onTap: () {
+                            activeUserController.disposeList();
                             Get.to(() => const LoginPage());
                           },
                           child:
@@ -82,6 +89,11 @@ class HomePage extends StatelessWidget {
                   MyReadOnlyTextField(
                       labelText: 'Fecha de Nacimiento',
                       initialValue: activeUserController.getBirthDate),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  //Button for seeing your addresses
+                  MyButton(text: 'Mis Direcciones', callback: toMyAddresses)
                 ],
               ),
             ),

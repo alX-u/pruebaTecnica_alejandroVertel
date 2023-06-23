@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_tecnica_alejandro_vertel/controllers/active_user_controller.dart';
 import 'package:prueba_tecnica_alejandro_vertel/controllers/date_controller.dart';
+import 'package:prueba_tecnica_alejandro_vertel/model/address_model.dart';
 import 'package:prueba_tecnica_alejandro_vertel/model/user_model.dart';
 import 'package:prueba_tecnica_alejandro_vertel/pages/login_page.dart';
 //GetX
@@ -14,6 +15,7 @@ void main() async {
   await Hive.initFlutter();
   //Adapter
   Hive.registerAdapter(UsersAdapter());
+  Hive.registerAdapter(AddressAdapter());
   //We open the boxes
   var box = await Hive.openBox('users');
   var box2 = await Hive.openBox('addresses');

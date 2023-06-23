@@ -25,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
 
   //reference our DB
   final userBox = Hive.box('users');
+  final addressBox = Hive.box('addresses');
 
   //active_user_controller
   ActiveUserController activeUserController = Get.find();
@@ -39,11 +40,23 @@ class _LoginPageState extends State<LoginPage> {
     for (var i = 0; i < userBox.values.toList().length; i++) {
       if (usernameCtrl.text == userBox.values.toList()[i].username &&
           passwordCtrl.text == userBox.values.toList()[i].password) {
+        //We store the user's data
         activeUserController.signInUser(
-            userBox.values.toList()[i].username,
-            userBox.values.toList()[i].name,
-            userBox.values.toList()[i].lastName,
-            userBox.values.toList()[i].birthDate);
+          userBox.values.toList()[i].username,
+          userBox.values.toList()[i].name,
+          userBox.values.toList()[i].lastName,
+          userBox.values.toList()[i].birthDate,
+        );
+        //We search for the user's addresses
+        for (var k = 0; k < addressBox.values.toList().length; k++) {
+          if (userBox.values.toList()[i].username ==
+              addressBox.values.toList()[k].username) {
+            //Here has to be the function that adds it to the dynamic list
+            activeUserController
+                .addUserAddresses(addressBox.values.toList()[k]);
+          }
+        }
+        print(activeUserController.addresses);
         Get.to(() => HomePage());
       }
     }

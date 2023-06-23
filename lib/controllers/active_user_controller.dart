@@ -1,18 +1,20 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import '../model/address_model.dart';
+
 class ActiveUserController extends GetxController {
   final RxString usernameGet = ''.obs;
   final RxString nameGet = ''.obs;
   final RxString lastNameGet = ''.obs;
   final RxString birthDateGet = ''.obs;
-  final RxString addressGet = ''.obs;
+  final addresses = <Address>[].obs;
 
   String get getUsername => usernameGet.value;
   String get getName => nameGet.value;
   String get getLastName => lastNameGet.value;
   String get getBirthDate => birthDateGet.value;
-  String get getAddress => addressGet.value;
+  List get getAdresses => addresses;
 
   @override
   void onInit() {
@@ -28,5 +30,13 @@ class ActiveUserController extends GetxController {
     nameGet.value = name;
     lastNameGet.value = lastName;
     birthDateGet.value = birthDate;
+  }
+
+  void addUserAddresses(Address address) {
+    addresses.add(address);
+  }
+
+  void disposeList() {
+    addresses.value = [];
   }
 }
